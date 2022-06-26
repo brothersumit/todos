@@ -1,0 +1,14 @@
+body {
+	overflow-x: hidden; /* Hide scrollbars */
+}
+.header {
+	padding: 30px;
+}
+.list-checkbox{
+	height: 25px;
+	width: 25px;
+}
+.no-tasks {
+    padding: 20%;
+    border: none;
+}
