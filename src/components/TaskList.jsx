@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import notasks from '../images/notasks.png';
 import { setTaskDone, setTaskOngoing } from "../store/actions/taskActions";
+import TaskEditInput from "./TaskEditInput";
 
 const TaskList = () => {
 	const {tasks} = useSelector(state => state.tasks)
@@ -16,6 +17,7 @@ const TaskList = () => {
 		}
 	}
 
+	//Filter ongoing tasks
 	const ongoing_tasks = tasks.filter(task => {
 		return task.isDone === false;
 	})
@@ -28,10 +30,9 @@ const TaskList = () => {
 						<input className="form-check-input list-checkbox" type="checkbox" value={task.id} onChange={handleCheckbox} />
 					</div>
 					<div className="col-md-9">	
-						<input type="text" className="form-control-plaintext" readOnly value={task.name} />
+						<TaskEditInput itemdata={task}/>
 					</div>
 					<div className="col-md-2 text-end">
-						<button type="button" className="btn btn-outline-primary me-1"><i className="bi bi-pencil-square"></i></button>
 						<button type="button" className="btn btn-outline-danger"><i className="bi bi-trash"></i></button>
 					</div>								
 				</div>
@@ -39,8 +40,7 @@ const TaskList = () => {
 		)
 	}).reverse();
 
-	
-
+	//Filter complted tasks
 	const completed_tasks = tasks.filter(task => {
 		return task.isDone === true;
 	})
@@ -53,10 +53,9 @@ const TaskList = () => {
 						<input className="form-check-input list-checkbox" type="checkbox" checked value={task.id} onChange={handleCheckbox} />
 					</div>
 					<div className="col-md-9">
-						<input type="text" className="form-control-plaintext" readOnly value={task.name} />
+						<TaskEditInput itemdata={task}/>		
 					</div>
-					<div className="col-md-2 text-end">
-						<button type="button" className="btn btn-outline-primary me-1"><i className="bi bi-pencil-square"></i></button>
+					<div className="col-md-2 text-end">	
 						<button type="button" className="btn btn-outline-danger"><i className="bi bi-trash"></i></button>
 					</div>								
 				</div>
@@ -69,15 +68,17 @@ const TaskList = () => {
 		<div className="container mt-5">
 			<div className="row">
 				<div className="col-md-8 mx-auto">
-					{(items.length === 0 && comleted_items.length === 0) ? (<li className="list-group-item text-center no-tasks"><img src={notasks} alt="No tasks yet" height={100}/><p className="mt-1">No tasks here yet</p></li>) : (
+					{(items.length === 0 && comleted_items.length === 0) ? 
+					(
+						<li className="list-group-item text-center no-tasks"><img src={notasks} alt="No tasks yet" height={100}/><p className="mt-1">No tasks here yet</p></li>
+					) : (
 						<div>
 							<ul className="list-group">
 								{items}
 							</ul>
-					</div>
+						</div>
 					)}
 					
-
 					{(comleted_items.length === 0)? '': (
 						<div>
 							<p className="mt-5">Completed Tasks <i class="bi bi-arrow-down-short"></i></p>

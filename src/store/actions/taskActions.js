@@ -1,10 +1,19 @@
-import { TASK_ADD, TASK_DONE, TASK_ONGOING } from "../types";
+import { TASK_ADD, TASK_DONE, TASK_EDIT, TASK_ONGOING } from "../types";
 
 export const addTask = (formdata) => {
 	return function(dispatch){
 		//console.log(formdata);
 		dispatch({
 			type: TASK_ADD,
+			payload: formdata
+		})
+	}
+}
+
+export const editTask = (formdata) => {
+	return function(dispatch){
+		dispatch({
+			type: TASK_EDIT,
 			payload: formdata
 		})
 	}
