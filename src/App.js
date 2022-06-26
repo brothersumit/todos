@@ -1,13 +1,15 @@
-//import logo from './logo.svg';
-import { useSelector } from 'react-redux';
 import './App.css';
+import Header from './components/Header';
+import TaskAdd from './components/TaskAdd';
+import TaskList from './components/TaskList';
 
 function App() {
-  const {tasks} = useSelector(state => state.tasks);
+
   return (
     <div className="App">
-      <h1>Todos</h1>
-      
+		<Header />
+		<TaskAdd />
+        <TaskList />
     </div>
   );
 }

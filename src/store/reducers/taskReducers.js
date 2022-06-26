@@ -1,7 +1,8 @@
 import { TASK_ADD } from "../types";
 const initialState = {
     tasks: [
-        {id: 1, name: 'Make cold coffe'}
+        {id: 1, name: 'Make cold coffe'},
+		{id: 2, name: 'Get back to your work table.'}
     ]
 }
 
