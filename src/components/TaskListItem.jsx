@@ -38,13 +38,13 @@ const TaskListItem = (props) => {
 	return ( 
 		<li className={'list-group-item '+bgcolor} key={props.task.id}>
 			<div className="row task-item">
-				<div className="col-md-1 text-center">
+				<div className="col-md-1 col-2 text-center">
 					<input className="form-check-input list-checkbox" type="checkbox" defaultChecked={checked} value={props.task.id} onChange={handleCheckbox} />
 				</div>
-				<div className="col-md-9">
+				<div className="col-md-9 col-8">
 					<input type="text" className={'form-control border-0 '+bgcolor} value={text} onChange={handleEdit} onBlur={handleEditTask}/>
 				</div>
-				<div className="col-md-2 text-end">
+				<div className="col-md-2 col-2 text-end">
 					<button type="button" className="btn btn-outline-danger" onClick={handleDelete}><i className="bi bi-trash"></i></button>
 				</div>								
 			</div>

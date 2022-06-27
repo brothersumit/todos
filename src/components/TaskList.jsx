@@ -29,7 +29,7 @@ const TaskList = () => {
 	return (
 		<div className="container mt-5">
 			<div className="row">
-				<div className="col-md-8 mx-auto">
+				<div className="col-md-8 col-12 mx-auto">
 					{(items.length === 0 && comleted_items.length === 0) ? 
 					(
 						<li className="list-group-item text-center no-tasks"><img src={notasks} alt="No tasks yet" height={100}/><p className="mt-1">No tasks here yet</p></li>

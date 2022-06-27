@@ -23,13 +23,13 @@ const TaskAdd = () => {
 	return ( 
 		<div className="container mt-5">
 			<div className="row">
-				<div className="col-md-8 mx-auto">
+				<div className="col-md-8 col-12 mx-auto">
 					<form onSubmit={handleSubmit}>
 						<div className="row">
-							<div className="col-md-11">
+							<div className="col-md-11 col-10">
 								<input type="text" className="form-control" value={text} onChange={handleText} placeholder="Enter task to do."/>
 							</div>
-							<div className="col-md-1">
+							<div className="col-md-1 col-2">
 								<button type="submit" className="btn btn-outline-primary float-end"><i className="bi bi-plus-circle"></i></button>
 							</div>
 							
