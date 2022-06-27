@@ -1,4 +1,4 @@
-import { TASK_ADD, TASK_DONE, TASK_EDIT, TASK_ONGOING } from "../types";
+import { TASK_ADD, TASK_DELETE, TASK_DONE, TASK_EDIT, TASK_ONGOING } from "../types";
 
 export const addTask = (formdata) => {
 	return function(dispatch){
@@ -15,6 +15,15 @@ export const editTask = (formdata) => {
 		dispatch({
 			type: TASK_EDIT,
 			payload: formdata
+		})
+	}
+}
+
+export const deleteTask = (taskId) => {
+	return function(dispatch){
+		dispatch({
+			type: TASK_DELETE,
+			payload: taskId
 		})
 	}
 }

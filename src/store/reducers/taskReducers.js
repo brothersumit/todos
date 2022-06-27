@@ -1,4 +1,4 @@
-import { TASK_ADD, TASK_DONE, TASK_EDIT, TASK_ONGOING } from "../types";
+import { TASK_ADD, TASK_DELETE, TASK_DONE, TASK_EDIT, TASK_ONGOING } from "../types";
 const initialState = {
     tasks: []
 }
@@ -16,6 +16,11 @@ const taskReducers = (state = initialState, action) => {
 				}
 			}
 			return { tasks: state.tasks}
+		case TASK_DELETE:
+			const updated_tasks = state.tasks.filter(task => {
+				return task.id !== action.payload
+			})
+			return {tasks: updated_tasks}
 		case TASK_DONE:
 			for (const task of state.tasks) {
 				if (task.id === action.payload) {
